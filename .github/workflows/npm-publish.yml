@@ -15,7 +15,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: ./install_protoc.sh  
+      - run: ./install_protoc.sh
+      - run: npm i -g protoc-gen-js
       - run: npm ci
       - run: npm run build
 
@@ -28,7 +29,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: ./install_protoc.sh    
+      - run: ./install_protoc.sh
+      - run: npm i -g protoc-gen-js
       - run: npm ci
       - run: npm run build
       - run: npm publish
