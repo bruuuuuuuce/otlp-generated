@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.7](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.6...v0.0.7) (2023-09-14)
+
+
+### Bug Fixes
+
+* typo in publish.yml ([0084929](https://github.com/bruuuuuuuce/otlp-generated/commit/0084929004f8908d96c796c4385444a411a6f031))
+
 ## [0.0.6](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.5...v0.0.6) (2023-09-14)
 
 
