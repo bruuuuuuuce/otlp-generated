@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.6](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.5...v0.0.6) (2023-09-14)
+
+
+### Bug Fixes
+
+* install protoc before release please builds ([eab67fe](https://github.com/bruuuuuuuce/otlp-generated/commit/eab67fe16ec27b7050aa63fb999772b0d3057489))
+
 ## [0.0.5](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.4...v0.0.5) (2023-09-14)
 
 
