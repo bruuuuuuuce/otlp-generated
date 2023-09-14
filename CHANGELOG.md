@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.4...v0.0.5) (2023-09-14)
+
+
+### Bug Fixes
+
+* release please was not building before publishing ([7079fd1](https://github.com/bruuuuuuuce/otlp-generated/commit/7079fd1af6cfe647f884b43813f0a7e22a9fad8f))
+
 ## [0.0.4](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.3...v0.0.4) (2023-09-14)
 
 
