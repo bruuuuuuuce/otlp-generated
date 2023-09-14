@@ -1,5 +1,5 @@
 {
-  "name": "goodmetrics-generated",
+  "name": "otlp-generated",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rm -rf dist && mkdir -p src && ts-node generate.ts && cp index.ts src/ && tsc"
   },
-  "author": "",
+  "author": "bruuuuuuuce",
   "license": "Apache-2.0",
   "devDependencies": {
     "@tsconfig/node16": "1.0.2",
