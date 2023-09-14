@@ -35,7 +35,7 @@ jobs:
           ./install_protoc.sh
           npm i -g protoc-gen-js
           npm ci
-          npm run builb
+          npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
