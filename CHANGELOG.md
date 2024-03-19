@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.7...v0.1.0) (2024-03-19)
+
+
+### Features
+
+* bump grpc js to version 1.10.0 ([990da5e](https://github.com/bruuuuuuuce/otlp-generated/commit/990da5ec4b5c1b6606613757e3df950f9b44fd16))
+
 ## [0.0.7](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.6...v0.0.7) (2023-09-14)
 
 
