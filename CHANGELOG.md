@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.1.0...v0.1.1) (2024-06-07)
+
+
+### Bug Fixes
+
+* semver grpc-js ([#13](https://github.com/bruuuuuuuce/otlp-generated/issues/13)) ([88e2716](https://github.com/bruuuuuuuce/otlp-generated/commit/88e2716030098bfb40f230c3d6efcb43d0331cdd))
+
 ## [0.1.0](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.0.7...v0.1.0) (2024-03-19)
 
 
