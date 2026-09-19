@@ -37,15 +37,18 @@ There's no real `test` script (`npm test` just exits 1, it's a placeholder).
   generated protobuf descriptor code doesn't type-check cleanly under strict mode and TS has no
   per-file strictness escape hatch that fits here. Don't turn it on repo-wide; if you add genuinely
   hand-written code, still write it as if strict mode applied (explicit types, no implicit `any`).
-- This repo is pinned to noticeably older tooling than some sibling repos: Node 16 types,
-  TypeScript 4.9.5, and both `.github/workflows/*.yml` still target Node 16 with old action
-  versions (`actions/checkout@v2`/`v3`, `setup-node@v1`/`v3`, `release-please-action@v3`). A
-  sibling repo (`goodmetrics-generated`) hit a real CI break from this: an unpinned
-  `npm i -g protoc-gen-js` picked up a new major version that requires Node ≥18's native `fetch`,
-  which doesn't exist on Node 16 and made the postinstall script crash. If this repo's CI ever
-  fails on that step, either pin `protoc-gen-js` to a Node-16-compatible version (last known-good:
-  `3.21.4`) or bump this repo's Node version the way `goodmetrics-generated` was (Node 24 +
-  `googleapis/release-please-action@v5` + OIDC provenance publish).
+- CI (`.github/workflows/build.yml`/`publish.yml`) already runs on Node 24 with
+  `googleapis/release-please-action@v5` and OIDC provenance publish, matching `goodmetrics-generated`.
+  However, `package.json`'s dev-time type packages are still Node-16-flavored
+  (`@types/node: 16.10.3`, `@tsconfig/node16: 1.0.2`) and `typescript` is pinned to `4.9.5` — these
+  only affect type-checking, not the actual Node 24 runtime, but they're stale and worth bumping
+  together at some point (check whether `@tsconfig/node16` is even referenced by `tsconfig.json`
+  before assuming it still does anything).
+- `npm i -g protoc-gen-js` (in both workflow files) is unpinned. This bit `goodmetrics-generated`
+  for real: an unpinned install picked up a new major version requiring Node ≥18's native `fetch`,
+  which crashed on that repo's (then-Node-16) CI. Not currently a live risk here since CI is
+  already on Node 24, but if `protoc-gen-js` ever needs pinning, the last version confirmed to
+  work without relying on native `fetch` is `3.21.4`.
 - Before bumping any dependency (including via Dependabot), confirm the new version's shipped
   types still parse under TypeScript 4.9 — a too-new package can ship `.d.ts` syntax an older
   `tsc` can't parse, which breaks the build silently until you actually run `npx tsc --noEmit`.
