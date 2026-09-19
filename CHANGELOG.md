@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.1.1...v0.1.2) (2026-09-19)
+
+
+### Bug Fixes
+
+* add repository field for npm provenance verification ([#16](https://github.com/bruuuuuuuce/otlp-generated/issues/16)) ([4e76a16](https://github.com/bruuuuuuuce/otlp-generated/commit/4e76a16b2fc706397da50a6600264dfe17944ce8))
+* Update GitHub Actions workflow for release and publish ([#15](https://github.com/bruuuuuuuce/otlp-generated/issues/15)) ([13ae576](https://github.com/bruuuuuuuce/otlp-generated/commit/13ae5762f64f1152335346035b6119f570644bbd))
+
 ## [0.1.1](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.1.0...v0.1.1) (2024-06-07)
 
 
