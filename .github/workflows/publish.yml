@@ -3,40 +3,63 @@ on:
     branches:
       - main
 
+name: release-please
+
 permissions:
   contents: write
   pull-requests: write
 
-name: release-please
 jobs:
-  release-please:
+  release:
+    name: Release Please
     runs-on: ubuntu-latest
+
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+      version: ${{ steps.release.outputs.version }}
+
     steps:
-      - uses: google-github-actions/release-please-action@v3
+      - name: Release Please
         id: release
+        uses: googleapis/release-please-action@v5
         with:
           release-type: node
           package-name: otlp-generated
           bump-minor-pre-major: true
           prerelease: true
-      # The logic below handles the npm publication:
-      - uses: actions/checkout@v2
-        # these if statements ensure that a publication only occurs when
-        # a new release is created:
-        if: ${{ steps.release.outputs.release_created }}
-      - uses: actions/setup-node@v1
+
+  publish:
+    name: Publish to npm
+    needs: release
+
+    # Only publish when Release Please actually creates a release.
+    if: ${{ needs.release.outputs.release_created == 'true' }}
+
+    runs-on: ubuntu-latest
+    environment: npm
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
         with:
-          node-version: 16
-          registry-url: 'https://registry.npmjs.org'
-        if: ${{ steps.release.outputs.release_created }}
-      - name: install protoc and build package
-        if: ${{ steps.release.outputs.release_created }}
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      - name: Install protoc and build package
         run: |
           ./install_protoc.sh
           npm i -g protoc-gen-js
           npm ci
           npm run build
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Publish to npm
+        run: npm publish
