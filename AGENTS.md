@@ -67,6 +67,12 @@ determines the version bump:
 - `feat!: ...` or a `BREAKING CHANGE:` footer → major-equivalent bump
 - `chore:`, `docs:`, `refactor:`, `test:`, `ci:` → no version bump
 
+## Git workflow: never commit to `main`
+
+Always create a feature branch and open a pull request — never commit directly to `main`, even
+for a one-line fix or a docs-only change. There are no exceptions for small or "trivial" changes.
+This applies to AI coding agents exactly as it does to human contributors.
+
 ## Release / publish gotchas
 
 - `package.json`'s `version` is managed by release-please's release PRs — don't hand-edit it.
