@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.1.2...v0.1.3) (2026-09-19)
+
+
+### Bug Fixes
+
+* update AGENTS.md accuracy and bump Node 24 type packages ([#22](https://github.com/bruuuuuuuce/otlp-generated/issues/22)) ([f5bb7af](https://github.com/bruuuuuuuce/otlp-generated/commit/f5bb7afa1264cdb23a2fd481c367ebfca467a771))
+
 ## [0.1.2](https://github.com/bruuuuuuuce/otlp-generated/compare/v0.1.1...v0.1.2) (2026-09-19)
 
 
