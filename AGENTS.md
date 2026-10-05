@@ -58,6 +58,13 @@ There's no real `test` script (`npm test` just exits 1, it's a placeholder).
 
 ## Commit messages: Conventional Commits (required, not just style)
 
+Always write commit messages using Conventional Commits:
+`<type>[optional scope]: <description>` (for example,
+`docs: clarify installation` or `fix(config): handle missing values`).
+Use an imperative, lowercase description without a trailing period. Common
+types are `feat`, `fix`, `docs`, `test`, `refactor`, `ci`, and `chore`.
+Mark breaking changes with `!` and explain them in a `BREAKING CHANGE:` footer.
+
 This repo uses `release-please` to automate versioning/changelogs from commit history on `main`.
 The commit type on `main` (i.e. the squash-merge commit message, if PRs are squashed) directly
 determines the version bump:
@@ -68,6 +75,9 @@ determines the version bump:
 - `chore:`, `docs:`, `refactor:`, `test:`, `ci:` → no version bump
 
 ## Git workflow: never commit to `main`
+
+Do all work in a dedicated Git worktree and feature branch. Do not make changes
+in the primary checkout.
 
 Always create a feature branch and open a pull request — never commit directly to `main`, even
 for a one-line fix or a docs-only change. There are no exceptions for small or "trivial" changes.
